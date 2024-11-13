@@ -45,10 +45,10 @@ func SHA256(str string) string {
 	strRune := []rune(str)
 	salt := []rune("go-2024")
 	mid := len(strRune) / 2
-	strRuneAndSalt := append(append(strRune[:mid], salt...), strRune[mid:]...)
+	runesWithSalt := append(append(strRune[:mid], salt...), strRune[mid:]...)
 
 	hasher := sha256.New()
-	hasher.Write([]byte(string(strRuneAndSalt))) //TODO Не уыерен, что нужно было именно так, делал как в курсе
+	hasher.Write([]byte(string(runesWithSalt))) //TODO Не уыерен, что нужно было именно так, делал как в курсе
 	return hex.EncodeToString(hasher.Sum(nil))
 }
 
