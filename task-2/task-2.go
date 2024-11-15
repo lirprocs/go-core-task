@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"math/rand/v2"
+	"reflect"
 )
 
 func sliceExample(arr []int) []int {
@@ -54,7 +55,7 @@ func main() {
 	newSlice2 = append(newSlice2, 8)
 	fmt.Println("Измененный оригинальный слайс:", newSlice2)
 	fmt.Println("Копия после изменений в оригинале:", copiedSlice)
-	if len(newSlice2) != len(copiedSlice) && newSlice2[len(newSlice2)-1] != copiedSlice[len(copiedSlice)-1] {
+	if !reflect.DeepEqual(newSlice2, copiedSlice) {
 		fmt.Println("Изменения в оригинальном слайсе не влияют на его копию.")
 	}
 
