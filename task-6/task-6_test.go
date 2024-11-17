@@ -35,7 +35,7 @@ func TestMerge(t *testing.T) {
 	result := merge(c1, c2, c3)
 
 	var resultSlice []int
-	myMap := make(map[int]bool, 9)
+	myMap := make(map[int]bool, len(expected))
 	for v := range result {
 		resultSlice = append(resultSlice, v)
 		myMap[v] = true
